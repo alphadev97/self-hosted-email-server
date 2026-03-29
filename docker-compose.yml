@@ -3,7 +3,7 @@ services:
     image: mailserver/docker-mailserver:latest
     container_name: mailserver
     hostname: mail
-    domainname: localhost
+    domainname: mail.local
     ports:
       - "25:25"
       - "587:587"

@@ -1,0 +1,4 @@
+docker/mailserver/data/
+docker/mailserver/state/
+docker/mailserver/logs/
+docker/mailserver/config/
