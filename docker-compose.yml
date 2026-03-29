@@ -1,0 +1,23 @@
+services:
+  mailserver:
+    image: mailserver/docker-mailserver:latest
+    container_name: mailserver
+    hostname: mail
+    domainname: localhost
+    ports:
+      - "25:25"
+      - "587:587"
+      - "993:993"
+    volumes:
+      - ./docker/mailserver/data:/var/mail
+      - ./docker/mailserver/state:/var/mail-state
+      - ./docker/mailserver/logs:/var/log/mail
+      - ./docker/mailserver/config:/tmp/docker-mailserver
+    environment:
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FAIL2BAN=0
+      - ONE_DIR=1
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
